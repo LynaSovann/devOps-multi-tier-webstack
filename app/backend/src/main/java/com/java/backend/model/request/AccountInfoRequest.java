@@ -10,14 +10,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AccountRequest {
+public class AccountInfoRequest {
 
-    @NotNull
-    @NotBlank
-    @Email
-    private String email;
+    private String firstName;
+    private String lastName;
+    private String profileImage;
+    private String bio;
 
-    @NotNull
-    @NotBlank
-    private String password;
 }

@@ -8,16 +8,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class AccountRequest {
+@NoArgsConstructor
+public class UserInfoRequest {
 
-    @NotNull
     @NotBlank
-    @Email
-    private String email;
-
     @NotNull
-    @NotBlank
-    private String password;
+    private Integer userId;
 }

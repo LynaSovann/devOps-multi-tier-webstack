@@ -96,6 +96,13 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>io.minio</groupId>
+			<artifactId>minio</artifactId>
+			<version>8.5.6</version>
+		</dependency>
+
+
 
 	</dependencies>
 

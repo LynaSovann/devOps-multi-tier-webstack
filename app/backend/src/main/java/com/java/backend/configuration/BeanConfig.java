@@ -1,5 +1,6 @@
 package com.java.backend.configuration;
 
+import io.minio.MinioClient;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,5 +24,6 @@ public class BeanConfig {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
 
 }

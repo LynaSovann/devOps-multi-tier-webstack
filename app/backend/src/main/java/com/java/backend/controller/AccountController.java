@@ -1,6 +1,7 @@
 package com.java.backend.controller;
 
 import com.java.backend.jwt.JwtService;
+import com.java.backend.model.request.AccountInfoRequest;
 import com.java.backend.model.request.AccountRequest;
 import com.java.backend.model.request.AuthRequest;
 import com.java.backend.model.response.APIResponse;
@@ -19,6 +20,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/accounts")
@@ -55,15 +57,9 @@ public class AccountController {
         }
     }
 
-
-
     @PostMapping("/create-account")
     @Operation(summary = "register")
-
     public ResponseEntity<APIResponse<?>> createAccount(@RequestBody AccountRequest accountRequest) {
-        accountRequest.setFirstname(accountRequest.getFirstname().toLowerCase());
-        accountRequest.setLastname(accountRequest.getLastname().toLowerCase());
-
         APIResponse<AccountResponse> res = APIResponse.<AccountResponse>builder()
                 .message("Created Account successfully!")
                 .payload(accountService.createAccount(accountRequest))
@@ -88,5 +84,19 @@ public class AccountController {
                 .build();
         return ResponseEntity.ok(res);
     }
+
+    @GetMapping
+    @Operation(summary = "get all accounts")
+    public ResponseEntity<APIResponse<?>> getAllAccounts() throws Exception {
+
+        APIResponse<List<AccountResponse>> res = APIResponse.<List<AccountResponse>>builder()
+                .message("Get all accounts successfully")
+                .payload(accountService.getAllAccount())
+                .status(HttpStatus.OK)
+                .timestamp(LocalDateTime.now())
+                .build();
+        return ResponseEntity.ok(res);
+    }
+
 
 }
