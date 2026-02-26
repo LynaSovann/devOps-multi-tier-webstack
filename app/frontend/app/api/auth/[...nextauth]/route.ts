@@ -26,7 +26,7 @@ export const authOptions: NextAuthOptions = {
         );
 
         const user = await res.json();
-        console.log("user ", user);
+        console.log("usr ", user);
         return user;
       },
     }),
@@ -38,10 +38,14 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async jwt({ token, user }) {
-      return { ...token, ...user };
+      if (user) {
+        token.payload = user.payload;
+      }
+      return token;
     },
 
     async session({ session, token }) {
+      session.payload = token.payload;
       return token;
     },
   },

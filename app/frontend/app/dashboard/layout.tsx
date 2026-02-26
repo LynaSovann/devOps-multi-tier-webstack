@@ -1,34 +1,14 @@
-'use client';
-
-import { useAuth } from '@/lib/auth-context';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
-import Sidebar from '@/components/dashboard/sidebar';
+import Sidebar from "@/components/dashboard/sidebar";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { isAuthenticated } = useAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push('/login');
-    }
-  }, [isAuthenticated, router]);
-
-  if (!isAuthenticated) {
-    return null;
-  }
-
   return (
     <div className="flex h-screen bg-background">
       <Sidebar />
-      <main className="flex-1 flex flex-col overflow-hidden">
-        {children}
-      </main>
+      <main className="flex-1 flex flex-col overflow-hidden">{children}</main>
     </div>
   );
 }

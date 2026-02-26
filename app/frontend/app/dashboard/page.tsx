@@ -4,14 +4,13 @@ import { redirect } from "next/navigation";
 import { getAccountInfor } from "@/service/accountService";
 
 export default async function DashboardPage() {
-  // const session = await getServerSession(authOptions);
-  // console.log("Session: ", session);
+  const session = await getServerSession(authOptions);
 
-  // if (!session?.payload?.token) {
-  //   redirect("/login");
-  // }
+  if (!session?.payload?.token) {
+    redirect("/login");
+  }
 
-  const { payload } = await getAccountInfor();
+  const { payload } = await getAccountInfor(session.payload.token);
 
   return (
     <div className="flex-1 overflow-auto">
