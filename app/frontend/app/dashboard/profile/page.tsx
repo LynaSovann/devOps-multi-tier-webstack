@@ -11,7 +11,7 @@ export default async function ProfilePage() {
     redirect("/login");
   }
 
-  const data = await getAccountInfor(session.payload.token);
+  const { payload } = await getAccountInfor(session.payload.token);
 
   return (
     <div className="flex-1 overflow-auto">
