@@ -30,7 +30,7 @@ A fully automated production-ready webstack deployment using **Vagrant**, **Virt
 
 ---
 
-🖥️ VM Setup
+### 🖥️ VM Setup
 
 1. Clone the repository
 
@@ -49,6 +49,10 @@ cd devOps-production-webstack/vagrant/manual-provisioning/
 ```bash
 vagrant up
 ```
+
+<img src="/docs/vms.png">
+
+---
 
 ## References
 
