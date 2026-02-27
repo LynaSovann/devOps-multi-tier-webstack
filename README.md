@@ -597,4 +597,9 @@ backend01 → minio01 (Object storage)**
 
 ## References
 
-https://github.com/hkhcoder/vprofile-project
+- https://nginx.org/en/docs/
+- https://www.postgresql.org/docs/
+- https://docs.min.io/enterprise/aistor-object-store/
+- https://spring.io/projects/spring-boot
+- https://nextjs.org/docs
+- https://github.com/hkhcoder/vprofile-project
